@@ -16,7 +16,6 @@ CREATE TABLE skills_dim (
     skill_id     INT    PRIMARY KEY,
     skills       VARCHAR,
     type         VARCHAR
-
 );
 
 CREATE TABLE job_postings_fact (
