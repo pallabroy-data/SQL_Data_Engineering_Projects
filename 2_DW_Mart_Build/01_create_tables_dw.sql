@@ -1,17 +1,25 @@
 -- Step-1: DW - Create star schema tables
-CREATE OR REPLACE TABLE company_dim (
+
+DROP TABLE IF EXISTS skills_job_dim;
+DROP TABLE IF EXISTS job_postings_fact;
+DROP TABLE IF EXISTS company_dim;
+DROP TABLE IF EXISTS skills_dim;
+
+
+
+CREATE TABLE company_dim (
     company_id INT PRIMARY KEY,
     name       VARCHAR
 );
 
-CREATE OR REPLACE TABLE skills_dim (
-    skill_id    INT PRIMARY KEY,
-    skill        VARCHAR,
+CREATE TABLE skills_dim (
+    skill_id     INT    PRIMARY KEY,
+    skills       VARCHAR,
     type         VARCHAR
 
 );
 
-CREATE OR REPLACE TABLE job_postings_fact (
+CREATE TABLE job_postings_fact (
     job_id INT PRIMARY KEY,
     company_id INT,
     job_title_short VARCHAR,
@@ -32,7 +40,7 @@ CREATE OR REPLACE TABLE job_postings_fact (
 );
 
 
-CREATE OR REPLACE TABLE skills_job_dim (
+CREATE TABLE skills_job_dim (
     skill_id INT,
     job_id INT,
     PRIMARY KEY (skill_id, job_id),
@@ -40,6 +48,7 @@ CREATE OR REPLACE TABLE skills_job_dim (
     FOREIGN KEY (job_id) REFERENCES job_postings_fact (job_id)
 );
 
+-- Check if the query ran correctly
 SELECT table_name
 FROM information_schema.tables 
 WHERE table_schema = 'main';
