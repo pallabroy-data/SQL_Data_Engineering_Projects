@@ -82,7 +82,7 @@ FROM
 
 
 -- Checking Data Validation
-SELECT 'company_dim' AS column_name, COUNT(*) AS record_count FROM company_dim
+SELECT 'company_dim' AS table_name, COUNT(*) AS record_count FROM company_dim
 UNION ALL
 SELECT 'skills_dim',COUNT(*) FROM skills_dim
 UNION ALL

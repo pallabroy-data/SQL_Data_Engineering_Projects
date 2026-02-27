@@ -8,5 +8,8 @@
 .read "./02_load_schema_dw.sql"
 
 
--- Step-3: Mart- create flat mart'
+-- Step-3: Mart- Create flat mart
 .read "./03_create_flat_mart.sql"
+
+-- Step-4: Mart- Create skills demand mart
+.read "./04_create_skills_mart.sql"
