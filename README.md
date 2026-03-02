@@ -10,7 +10,7 @@ These projects focus on real-world data workflows, analytical querying, dimensio
 
 ---
 
-## 📊 1_EDA/ – Exploratory Data Analysis
+## 📊 [1_EDA/ – Exploratory Data Analysis] (https://github.com/pallabroy-data/SQL_Data_Engineering_Projects/tree/main/1_EDA)
 
 ![EDA Project Overview](./Images/1_1_Project1_EDA1.png)
 
@@ -35,7 +35,7 @@ The analysis focuses on extracting meaningful insights from job postings by leve
 
 ---
 
-## 🏗 2_WH_Mart_Build/ – Data Pipeline: Data Warehouse & Data Marts
+## 🏗 [2_WH_Mart_Build/ – Data Pipeline: Data Warehouse & Data Marts](https://github.com/pallabroy-data/SQL_Data_Engineering_Projects/tree/main/2_DW_Mart_Build)
 
 ![Data Pipeline Architecture](./Images/1_2_Project_2.png)
 
