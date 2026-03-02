@@ -1,101 +1,179 @@
-# 🔍 Exploratory Data Analysis with SQL: Job Market Analysis
-![Alt Text](../Images/1_1_Project1_EDA1.png)
+# 📊 SQL-Based Exploratory Data Analysis: Data Engineer Job Market
 
-A SQL project analyzing the data engineer job market using real world job posting data. It demonstrates my ability to write production-quality analytical SQL, design efficient queries, and turn business questions into data-driven insights.  
+![Project Preview](../Images/1_1_Project1_EDA1.png)
 
----
-
-## 🧾 Executive Summary (For Hiring Managers)
-
-- ✅ **Project scope:** Built **3 analytical queries** that answer key questions about the data engineer job market  
-- ✅ **Data modeling:** Used **multi-table joins** across fact and dimension tables to extract insights  
-- ✅ **Analytics:** Applied **aggregations, filtering, and sorting** to find top skills by demand, salary, and overall value  
-- ✅ **Outcomes:** Delivered **actionable insights** on SQL/Python dominance, cloud trends, and salary patterns  
-
-
-If you only have a minute, review these:
-
-1. [`01_top_demanded_skills.sql`](./01_top_demnaded_skills.sql) – demand analysis with multi-table joins  
-2. [`02_top_paying_skills.sql`](./02_top_paying_skills.sql) – salary analysis with aggregations  
-3. [`03_optimal_skills.sql`](./03_optimal_skills.sql) – combined demand/salary optimization query  
+A structured SQL analytics project that explores the data engineer job market using real-world job posting data. This project highlights my ability to translate business questions into efficient analytical queries and extract actionable insights from a dimensional data warehouse.
 
 ---
 
-## 🧩 Problem & Context
+## 🧾 Executive Overview (For Recruiters & Hiring Managers)
 
-Job market analysts need to answer questions like:
-
-- 🎯 **Most in-demand:** *Which skills are most in-demand for data engineers?*  
-- 💰 **Highest paid:** *Which skills command the highest salaries?*  
-- ⚖️ **Best trade-off:** *What is the optimal skill set balancing demand and compensation?*  
-
-This project analyzes a **data warehouse** built using a star schema design. The warehouse structure consists of:
-
-![Data Warehouse Schema](../Images/1_2_Data_Warehouse.png)
-
-- **Fact Table:** `job_postings_fact` - Central table containing job posting details (job titles, locations, salaries, dates, etc.)
-- **Dimension Tables:** 
-  - `company_dim` - Company information linked to job postings
-  - `skills_dim` - Skills catalog with skill names and types
-- **Bridge Table:** `skills_job_dim` - Resolves the many-to-many relationship between job postings and skills
-
-By querying across these interconnected tables, I extracted insights about skill demand, salary patterns, and optimal skill combinations for data engineering roles.  
+- ✅ **Analytical scope:** Developed 3 production-style SQL queries to evaluate demand, salary, and skill optimization
+- ✅ **Dimensional querying:** Performed multi-table joins across fact, dimension, and bridge tables
+- ✅ **Advanced analytics:** Applied aggregations, filtering logic, and ranking techniques
+- ✅ **Business insights delivered:** Identified dominant programming languages, cloud adoption trends, and high-value infrastructure tools
 
 ---
 
-## 🧰 Tech Stack
+## ⏱ Quick Review (1-Minute Overview)
 
-- 🐤 **Query Engine:** DuckDB for fast OLAP-style analytical queries  
-- 🧮 **Language:** SQL (ANSI-style with analytical functions)  
-- 📊 **Data Model:** Star schema with fact + dimension + bridge tables  
-- 🛠️ **Development:** VS Code for SQL editing + Terminal for DuckDB CLI  
-- 📦 **Version Control:** Git/GitHub for versioned SQL scripts  
+If reviewing quickly, focus on these core analytical queries:
+
+1. [`01_top_demanded_skills.sql`](./01_top_demanded_skills.sql) – Skill demand analysis using multi-table joins
+2. [`02_top_paying_skills.sql`](./02_top_paying_skills.sql) – Salary-based skill ranking using statistical aggregation
+3. [`03_optimal_skills.sql`](./03_optimal_skills.sql) – Demand + salary optimization using logarithmic scoring
 
 ---
 
-## 📂 Repository Structure
+## 🎯 Business Context
+
+Hiring analysts and career strategists often need to answer:
+
+- 🎯 Which technical skills appear most frequently in data engineer job postings?
+- 💰 Which skills command the highest compensation?
+- ⚖️ Which skills offer the best balance between demand and salary?
+
+To answer these questions, this project queries a dimensional data warehouse structured using a star schema model.
+
+---
+
+## 🏛 Data Warehouse Structure
+
+![Warehouse Schema](../Images/1_2_Data_Warehouse.png)
+
+The warehouse includes:
+
+### 📌 Fact Table
+
+- `job_postings_fact` – Core table containing job metadata such as title, salary, location, and posting date
+
+### 📌 Dimension Tables
+
+- `company_dim` – Company-level descriptive attributes
+- `skills_dim` – Skill catalog with standardized skill names and categories
+
+### 📌 Bridge Table
+
+- `skills_job_dim` – Resolves the many-to-many relationship between job postings and skills
+
+By joining across these interconnected tables, the analysis extracts demand metrics, compensation statistics, and value-based skill rankings.
+
+---
+
+## 🛠 Technology Stack
+
+- 🐥 **Query Engine:** DuckDB (optimized for analytical workloads)
+- 🧾 **Language:** SQL (ANSI-style with analytical and mathematical functions)
+- 📐 **Data Model:** Star schema (fact + dimensions + bridge)
+- 💻 **Development Environment:** VS Code + DuckDB CLI
+- 📦 **Version Control:** Git & GitHub
+
+---
+
+## 📁 Project Structure
 
 ```text
 1_EDA/
-├── 01_top_demanded_skills.sql    # Demand analysis query
-├── 02_top_paying_skills.sql      # Salary analysis query
-├── 03_optimal_skills.sql         # Combined demand/salary optimization
-└── README.md                     # You are here
+├── 01_top_demanded_skills.sql        # Skill demand analysis
+├── 02_top_paying_skills.sql          # Salary-focused analysis
+├── 03_optimal_skills.sql             # Combined demand + salary scoring
+└── README.md                         # Project documentation
 ```
----
-
-## 🏗 Analysis Overview
-
-### Query Structure
-
-1. **[Top Demanded Skills](./01_top_demanded_skills.sql)** – Identifies the 10 most in-demand skills for remote data engineer positions
-2. **[Top Paying Skills](./02_top_paying_skills.sql)** – Analyzes the 25 highest-paying skills with salary and demand metrics
-3. **[Optimal Skills](./03_optimal_skills.sql)** – Calculates an optimal score using natural log of demand combined with median salary to identify the most valuable skills to learn
-
-### Key Insights
-
-- 🧠 Core languages: SQL and Python each appear in ~29,000 job postings, making them the most demanded skills
-- ☁️ Cloud platforms: AWS and Azure are critical for modern data engineering roles- 
-- 🧱 Infra & tooling: Kubernetes, Docker, and Terraform are associated with premium salaries
-- 🔥 Big data tools: Apache Spark shows strong demand with competitive compensation
 
 ---
 
-## 💻 SQL Skills Demonstrated
+# 📈 Analytical Approach
 
-### Query Design & Optimization
+## Query Breakdown
 
-- **Complex Joins**: Multi-table `INNER JOIN` operations across `job_postings_fact`, `skills_job_dim`, and `skills_dim`
-- **Aggregations**: `COUNT()`, `MEDIAN()`, `ROUND()` for statistical analysis
-- **Filtering**: Boolean logic with `WHERE` clauses and multiple conditions (`job_title_short`, `job_work_from_home`, `salary_year_avg IS NOT NULL`)
-- **Sorting & Limiting**: `ORDER BY` with `DESC` and `LIMIT` for top-N analysis
-- **Using CTE**: Using common table expressions as an intermediery step to calculate the filtered, aggregated and joined tables.
+### 1️⃣ Top Demanded Skills
 
-### Data Analysis Techniques
+Identifies the 10 most frequently requested skills for remote data engineer positions.
 
-- **Grouping**: `GROUP BY` for categorical analysis by skill
-- **Mathematical Functions**: `LN()` for natural logarithm transformation to normalize demand metrics
-- **Calculated Metrics**: Derived optimal score combining log-transformed demand with median salary
-- **HAVING Clause**: Filtering aggregated results (skills with >= 100 postings)
-- **NULL Handling**: Proper filtering of incomplete records (`salary_year_avg IS NOT NULL`)
+- Uses multi-table joins
+- Filters for remote roles
+- Counts job occurrences per skill
+- Orders by demand descending
 
+---
+
+### 2️⃣ Top Paying Skills
+
+Evaluates the 25 highest-paying skills.
+
+- Filters out NULL salaries
+- Computes median salary per skill
+- Includes demand metrics for context
+- Sorts by compensation level
+
+---
+
+### 3️⃣ Optimal Skills Ranking
+
+Introduces a scoring method combining demand and compensation.
+
+- Applies `LN()` (natural logarithm) to normalize demand
+- Combines log-transformed demand with median salary
+- Filters for skills with ≥ 100 job postings
+- Produces a balanced "value score"
+
+This method prevents highly common skills from dominating purely due to frequency.
+
+---
+
+# 🔎 Key Findings
+
+- 🧠 **Core Programming Languages:** SQL and Python dominate demand (~29,000 postings each)
+- ☁️ **Cloud Platforms:** AWS and Azure remain critical for modern data engineering roles
+- 🧱 **Infrastructure & DevOps:** Kubernetes, Docker, and Terraform correlate with higher salary brackets
+- 🔥 **Big Data Ecosystem:** Apache Spark shows both strong demand and competitive compensation
+
+---
+
+# 💻 SQL Competencies Demonstrated
+
+## 🔗 Query Engineering
+
+- Multi-table `INNER JOIN` operations across fact, dimension, and bridge tables
+- Efficient join strategies aligned with star schema modeling
+- Use of CTEs (Common Table Expressions) for structured transformations
+
+---
+
+## 📊 Aggregation & Statistical Analysis
+
+- `COUNT()` for demand measurement
+- `MEDIAN()` for compensation analysis
+- `ROUND()` for presentation-ready metrics
+- `GROUP BY` for categorical aggregation
+- `HAVING` for filtering aggregated results
+
+---
+
+## 🎯 Filtering & Ranking
+
+- Boolean filtering with `WHERE`
+- Multiple conditional filters (`job_title_short`, `job_work_from_home`, salary constraints)
+- `ORDER BY DESC` for ranking
+- `LIMIT` for top-N selection
+
+---
+
+## 🧮 Mathematical & Analytical Functions
+
+- `LN()` for natural logarithm normalization
+- Derived scoring metrics combining demand and salary
+- Proper NULL handling (`salary_year_avg IS NOT NULL`)
+- Log-based transformation to prevent skew from extreme frequency counts
+
+---
+
+# 🏁 Project Outcome
+
+This project demonstrates the ability to:
+
+- Query dimensional data warehouses efficiently
+- Apply analytical thinking to real-world labor market data
+- Design production-quality SQL queries
+- Derive actionable business insights from structured datasets
+- Communicate technical findings clearly
